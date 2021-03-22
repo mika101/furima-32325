@@ -1,24 +1,100 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column                 | Type   | Options     |
+| --------               | ------ | ----------- |
+| nickname               | string | null: false |
+| email                  | string | null: false |
+| password               | string | null: false |
+| password  confirmation | string | null: false |
+| name                   | string | null: false |
+| furigana               | string | null: false |
+| birthday               | date   | null: false |
 
-* Ruby version
+### Association
+- has_many :items
+- has_many :purchases
 
-* System dependencies
+## items テーブル
 
-* Configuration
+| Column              | Type       | Options                        |
+| --------            | ------     | -----------                    |
+| photo               | int        | null: false                    |
+| item name           | string     | null: false                    |
+| description of item | string     | null: false                    |
+| detail              | string     | null: false                    |
+| user_id             | references | null: false, foreign_key: true |
 
-* Database creation
+### Association
+- belongs_to :user
+- has_one :selling price
+- has_one :purchase
 
-* Database initialization
+## purchases テーブル
 
-* How to run the test suite
+| Column           | Type       | Options                        |
+| --------         | ------     | -----------                    |
+| price            | integer    | null: false                    |
+| credit card      | integer    | null: false                    |
+| shipping address | string     | null: false                    |
+| items_id         | references | null: false, foreign_key: true |
+| user_id          | references | null: false, foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
+- belongs_to :user
+- belongs_to :item
+- has_one :shipping address
+- has_one :delivery
+- has_one :credit card
 
-* Deployment instructions
+## selling price テーブル
 
-* ...
+| Column   | Type       | Options                        |
+| -------- | ------     | -----------                    |
+| price    | integer    | null: false                    |
+| fee      | integer    | null: false                    |
+| profit   | integer    | null: false                    |
+| items_id | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :item
+
+## delivery テーブル
+
+| Column        | Type       | Options                        |
+| ------------- | ------     | -----------                    |
+| burden        | string     | null: false                    |
+| area          | string     | null: false                    |
+| shipping days | string     | null: false                    |
+| purchase_id   | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :purchase
+
+## credit card テーブル
+
+| Column           | Type       | Options                        |
+| -----------------| ------     | -----------                    |
+| card information | integer    | null: false                    |
+| expiration date  | date       | null: false                    |
+| security code    | integer    | null: false                    |
+| purchase_id      | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :purchase
+
+## shipping address テーブル
+
+| Column        | Type       | Options                        |
+| ------------- | ------     | -----------                    |
+| postal code   | integer    | null: false                    |
+| prefectures   | string     | null: false                    |
+| municipality  | string     | null: false                    |
+| address       | string     | null: false                    |
+| building name | string     | null: false                    |
+| phone number  | integer    | null: false                    |
+| purchase_id   | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :purchase
