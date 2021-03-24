@@ -22,8 +22,8 @@
 | Column              | Type       | Options                        |
 | --------            | ------     | -----------                    |
 | photo               | int        | null: false                    |
-| item name           | string     | null: false                    |
-| description of item | string     | null: false                    |
+| item_name           | string     | null: false                    |
+| description_of_item | string     | null: false                    |
 | detail              | string     | null: false                    |
 | user_id             | references | null: false, foreign_key: true |
 
