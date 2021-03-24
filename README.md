@@ -21,7 +21,6 @@
 
 | Column              | Type       | Options                        |
 | --------            | ------     | -----------                    |
-| photo               | int        | null: false                    |
 | item_name           | string     | null: false                    |
 | description_of_item | string     | null: false                    |
 | detail              | string     | null: false                    |
