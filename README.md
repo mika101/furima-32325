@@ -25,6 +25,9 @@
 | description_of_item | string     | null: false                    |
 | category            | string     | null: false                    |
 | product_condition   | string     | null: false                    |
+| burden_id           | integer    | null: false, foreign_key: true |
+| area_id             | integer    | null: false, foreign_key: true |
+| shipping_day_id     | integer    | null: false, foreign_key: true |
 | user                | references | null: false, foreign_key: true |
 
 ### Association
