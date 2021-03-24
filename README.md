@@ -25,6 +25,7 @@
 | description_of_item | string     | null: false                    |
 | category            | string     | null: false                    |
 | product_condition   | string     | null: false                    |
+| price               | integer    | null: false                    |
 | burden_id           | integer    | null: false, foreign_key: true |
 | area_id             | integer    | null: false, foreign_key: true |
 | shipping_day_id     | integer    | null: false, foreign_key: true |
@@ -51,18 +52,6 @@
 - has_one :shipping address
 - has_one :delivery
 - has_one :credit card
-
-## selling price テーブル
-
-| Column   | Type       | Options                        |
-| -------- | ------     | -----------                    |
-| price    | integer    | null: false                    |
-| fee      | integer    | null: false                    |
-| profit   | integer    | null: false                    |
-| items_id | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :item
 
 ## delivery テーブル
 
