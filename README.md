@@ -73,18 +73,6 @@
 ### Association
 - belongs_to :purchase
 
-## credit card テーブル
-
-| Column           | Type       | Options                        |
-| -----------------| ------     | -----------                    |
-| card information | integer    | null: false                    |
-| expiration date  | date       | null: false                    |
-| security code    | integer    | null: false                    |
-| purchase_id      | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :purchase
-
 ## shipping address テーブル
 
 | Column        | Type       | Options                        |
