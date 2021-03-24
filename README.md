@@ -23,7 +23,8 @@
 | --------            | ------     | -----------                    |
 | item_name           | string     | null: false                    |
 | description_of_item | string     | null: false                    |
-| detail              | string     | null: false                    |
+| category            | string     | null: false                    |
+| product_condition   | string     | null: false                    |
 | user                | references | null: false, foreign_key: true |
 
 ### Association
