@@ -77,7 +77,7 @@
 
 | Column        | Type       | Options                        |
 | ------------- | ------     | -----------                    |
-| postal code   | integer    | null: false                    |
+| postal_code   | string     | null: false                    |
 | municipality  | string     | null: false                    |
 | address       | string     | null: false                    |
 | building_name | string     |                                |
