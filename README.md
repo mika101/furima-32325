@@ -33,7 +33,6 @@
 
 ### Association
 - belongs_to :user
-- has_one :selling price
 - has_one :purchase
 
 ## purchases テーブル
@@ -41,31 +40,16 @@
 | Column           | Type       | Options                        |
 | --------         | ------     | -----------                    |
 | price            | integer    | null: false                    |
-| credit card      | integer    | null: false                    |
 | shipping address | string     | null: false                    |
-| items_id         | references | null: false, foreign_key: true |
-| user_id          | references | null: false, foreign_key: true |
+| item_to_buy_id   | integer | null: false, foreign_key: true |
+| user_to_buy_id   | integer | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_one :shipping address
-- has_one :delivery
-- has_one :credit card
+- has_one :shipping_address
 
-## delivery テーブル
-
-| Column        | Type       | Options                        |
-| ------------- | ------     | -----------                    |
-| burden        | string     | null: false                    |
-| area          | string     | null: false                    |
-| shipping days | string     | null: false                    |
-| purchase_id   | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :purchase
-
-## shipping address テーブル
+## shipping_address テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ------     | -----------                    |
