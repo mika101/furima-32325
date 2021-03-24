@@ -78,11 +78,11 @@
 | Column        | Type       | Options                        |
 | ------------- | ------     | -----------                    |
 | postal code   | integer    | null: false                    |
-| prefectures   | string     | null: false                    |
 | municipality  | string     | null: false                    |
 | address       | string     | null: false                    |
 | building name | string     | null: false                    |
 | phone number  | integer    | null: false                    |
+| prefecture_id | integer    | null: false ,foreign_key: true |
 | purchase_id   | references | null: false, foreign_key: true |
 
 ### Association
