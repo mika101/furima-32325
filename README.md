@@ -26,9 +26,9 @@
 | category            | string     | null: false                    |
 | product_condition   | string     | null: false                    |
 | price               | integer    | null: false                    |
-| burden_id           | integer    | null: false, foreign_key: true |
-| area_id             | integer    | null: false, foreign_key: true |
-| shipping_day_id     | integer    | null: false, foreign_key: true |
+| burden_id           | integer    | null: false                    |
+| area_id             | integer    | null: false                    |
+| shipping_day_id     | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
 
 ### Association
@@ -41,8 +41,8 @@
 | --------         | ------     | -----------                    |
 | price            | integer    | null: false                    |
 | shipping address | string     | null: false                    |
-| item_to_buy_id   | integer | null: false, foreign_key: true |
-| user_to_buy_id   | integer | null: false, foreign_key: true |
+| item_to_buy_id   | integer    | null: false, foreign_key: true |
+| user_to_buy_id   | integer    | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
