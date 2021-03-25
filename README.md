@@ -39,8 +39,6 @@
 
 | Column           | Type       | Options                        |
 | --------         | ------     | -----------                    |
-| price            | integer    | null: false                    |
-| shipping address | string     | null: false                    |
 | item_to_buy_id   | integer    | null: false, foreign_key: true |
 | user_to_buy_id   | integer    | null: false, foreign_key: true |
 
