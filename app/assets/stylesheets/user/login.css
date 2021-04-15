@@ -2,6 +2,7 @@
   width: 50%;
   margin: 0 auto;
   margin-top: 50px;
+
 }
 
 .login-red-btn {
@@ -17,4 +18,9 @@
 .login-flash-message {
   text-align: center;
   color: red;
+}
+
+.remember-message {
+  text-align: center;
+  margin-top: 50px;
 }
