@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :nickname, presence: true
   validates :email, uniqueness: true
-  validates :password, format: { with: /\A(?=.&#042;?[a-z])(?=.&#042;?\d)[a-z\d]+\z/i, message: "半角英数字混合で入力して下さい"}
+  validates :password, format: { with: /\A[a-zA-Z0-9]+\z/, message: "半角英数字混合で入力して下さい"}
   validates :family_name, presence: true
   validates :first_name, presence: true
   validates :family_name_furigana, presence: true
