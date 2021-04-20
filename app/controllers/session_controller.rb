@@ -3,12 +3,12 @@ class SessionController < ApplicationController
     @login = Session.new
   end
 
-  def create 
+  def create
     @login = Session.new(email: params[:session][:email], password: params[:session][:password])
     if @login.save && (@user = User.find_by(email: @login.email)) && @user.authenticate(@login.password)
       redirect_to users_path
-    else 
-      render :new 
-    end 
-  end 
+    else
+      render :new
+    end
+  end
 end

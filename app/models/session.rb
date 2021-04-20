@@ -1,13 +1,14 @@
 class Session < ApplicationRecord
-  include ActiveModel::Model 
+  include ActiveModel::Model
 
-  attr_accessor :email, :password 
+  attr_accessor :email, :password
 
-  validates :email, presence: true 
-  validates :password, presence: true 
+  validates :email, presence: true
+  validates :password, presence: true
 
-  def save 
-      return false if invalid?
-      true
-  end 
+  def save
+    return false if invalid?
+
+    true
+  end
 end

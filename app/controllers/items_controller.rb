@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
   def index
-
   end
 
   def create
@@ -8,7 +7,7 @@ class ItemsController < ApplicationController
     if @user.save
       redirect_to controller: :users, action: :index
     else
-      render "new"
+      render 'new'
     end
   end
 end
