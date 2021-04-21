@@ -11,8 +11,8 @@ class User < ApplicationRecord
   validates :family_name_furigana, presence: true
   validates :first_name_furigana, presence: true
   validates :birthday, presence: true
-  validates :family_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: '全角で入力して下さい' }
-  validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: '全角で入力して下さい' }
+  validates :family_name, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: '全角で入力して下さい' }
+  validates :first_name, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: '全角で入力して下さい' }
   validates :family_name_furigana, format: { with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/, message: '全角カタカナのみで入力して下さい' }
   validates :first_name_furigana, format: { with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/, message: '全角カタカナのみで入力して下さい' }
 end
