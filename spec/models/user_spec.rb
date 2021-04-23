@@ -110,7 +110,6 @@ RSpec.describe User, type: :model do
           expect(@user.errors.full_messages).to include('First name 全角で入力して下さい')
         end
 
-        # 本人確認カタカナ全角入力のテスト
         it 'family_name_furiganaが全角カタカナでなければ登録できないこと' do
           @user.family_name_furigana = 'あいうえお'
           @user.valid?
@@ -121,6 +120,18 @@ RSpec.describe User, type: :model do
           @user.first_name_furigana = 'あいうえお'
           @user.valid?
           expect(@user.errors.full_messages).to include('First name furigana is invalid')
+        end
+
+        it 'family_name_furiganaが半角カタカナの場合登録できないこと' do
+          @user.family_name_furigana = 'ｱｲｳｴｵ'
+          @user.valid?
+           expect(@user.errors.full_messages).to include('Family name furigana is invalid')
+        end
+  
+        it 'first_name_furiganaが半角カタカナの場合登録できないこと' do
+          @user.first_name_furigana = 'ｱｲｳｴｵ'
+          @user.valid?
+           expect(@user.errors.full_messages).to include('First name furigana is invalid')
         end
       end
     end
