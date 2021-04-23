@@ -76,7 +76,7 @@ RSpec.describe User, type: :model do
         it 'family_name_furiganaがない場合は登録できないこと' do
           @user.family_name_furigana = nil
           @user.valid?
-          expect(@user.errors.full_messages).to include("Family name furigana can't be blank")
+          expect(@user.errors.full_messages).to include("Family name furigana is invalid")
         end
 
         it 'first_nameがない場合は登録できないこと' do
@@ -114,13 +114,13 @@ RSpec.describe User, type: :model do
         it 'family_name_furiganaが全角カタカナでなければ登録できないこと' do
           @user.family_name_furigana = 'あいうえお'
           @user.valid?
-          expect(@user.errors.full_messages).to include('Family name furigana 全角カタカナのみで入力して下さい')
+          expect(@user.errors.full_messages).to include('Family name furigana is invalid')
         end
 
         it 'first_name_furiganaが全角カタカナでなければ登録できないこと' do
           @user.first_name_furigana = 'あいうえお'
           @user.valid?
-          expect(@user.errors.full_messages).to include('First name furigana 全角カタカナのみで入力して下さい')
+          expect(@user.errors.full_messages).to include('First name furigana is invalid')
         end
       end
     end
