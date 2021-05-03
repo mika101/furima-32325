@@ -76,6 +76,31 @@ RSpec.describe Item, type: :model do
           @item.valid?
           expect(@item.errors.full_messages).to include("Shipping day can't be blank")
         end
+        it 'category_idが1だと保存できないこと' do
+          @item.category_id = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Category must be other than 1")
+        end
+        it 'product_condition_idが1だと保存できないこと' do
+          @item.product_condition_id = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Product condition must be other than 1")
+        end
+        it 'burden_idが1だと保存できないこと' do
+          @item.burden_id = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Burden must be other than 1")
+        end
+        it 'area_idが1だと保存できないこと' do
+          @item.area_id = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Area must be other than 1")
+        end
+        it 'shipping_day_idが1だと保存できないこと' do
+          @item.shipping_day_id = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Shipping day must be other than 1")
+        end
         it 'userが紐付いていないと保存できないこと' do
           @item.user = nil
           @item.valid?
