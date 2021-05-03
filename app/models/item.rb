@@ -10,11 +10,13 @@ class Item < ApplicationRecord
     validates :image
     validates :item_name
     validates :description_of_item
-    validates :category_id, numericality: { other_than: 1 }
-    validates :product_condition_id, numericality: { other_than: 1 }
-    validates :burden_id, numericality: { other_than: 1 }
-    validates :area_id, numericality: { other_than: 1 }
-    validates :shipping_day_id, numericality: { other_than: 1 }
+    with_options numericality: { other_than: 1 } do
+    validates :category_id
+    validates :product_condition_id
+    validates :burden_id
+    validates :area_id
+    validates :shipping_day_id
+  end
     validates :price,
               numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999,
                               message: 'is out of setting range' }
