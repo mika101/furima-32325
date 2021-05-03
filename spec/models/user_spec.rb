@@ -60,7 +60,7 @@ RSpec.describe User, type: :model do
           @user.password = 'aaaaaaa'
           @user.valid?
           expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
-        end       
+        end
         it 'passwordが数字のみでは登録できないこと' do
           @user.password = '123456'
           @user.valid?
@@ -81,7 +81,7 @@ RSpec.describe User, type: :model do
         it 'family_name_furiganaがない場合は登録できないこと' do
           @user.family_name_furigana = nil
           @user.valid?
-          expect(@user.errors.full_messages).to include("Family name furigana is invalid")
+          expect(@user.errors.full_messages).to include('Family name furigana is invalid')
         end
 
         it 'first_nameがない場合は登録できないこと' do
@@ -130,13 +130,13 @@ RSpec.describe User, type: :model do
         it 'family_name_furiganaが半角カタカナの場合登録できないこと' do
           @user.family_name_furigana = 'ｱｲｳｴｵ'
           @user.valid?
-           expect(@user.errors.full_messages).to include('Family name furigana is invalid')
+          expect(@user.errors.full_messages).to include('Family name furigana is invalid')
         end
-  
+
         it 'first_name_furiganaが半角カタカナの場合登録できないこと' do
           @user.first_name_furigana = 'ｱｲｳｴｵ'
           @user.valid?
-           expect(@user.errors.full_messages).to include('First name furigana is invalid')
+          expect(@user.errors.full_messages).to include('First name furigana is invalid')
         end
       end
     end
