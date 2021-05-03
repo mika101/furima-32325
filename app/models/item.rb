@@ -26,10 +26,4 @@ class Item < ApplicationRecord
   has_one :purchase
   has_one_attached :image
 
-  #
-  # validates :title, :text, presence: true
-  #
-  #
-  # belongs_to :area
-  # belongs_to :shipping_day
 end
