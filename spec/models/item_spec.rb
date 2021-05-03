@@ -11,7 +11,6 @@ RSpec.describe Item, type: :model do
           expect(@item).to be_valid
         end
         it '価格が300~9999999であれば登録できること' do
-          @item.price = '300'
           @item.price = '9999999'
           expect(@item).to be_valid
         end
