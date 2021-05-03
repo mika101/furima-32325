@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  #root to: 'articles#index'
-  #resources :articles
-  #get 'articles/index'
-  #get 'articles/new'
   devise_for :users
   get 'items/index'
   post 'items/new'
