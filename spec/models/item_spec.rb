@@ -11,7 +11,7 @@ RSpec.describe Item, type: :model do
           expect(@item).to be_valid
         end
         it '価格が300~9999999であれば登録できること' do
-          @item.price = 9999999
+          @item.price = 9_999_999
           expect(@item).to be_valid
         end
       end
@@ -84,27 +84,27 @@ RSpec.describe Item, type: :model do
         it 'category_idが1だと保存できないこと' do
           @item.category_id = 1
           @item.valid?
-          expect(@item.errors.full_messages).to include("Category must be other than 1")
+          expect(@item.errors.full_messages).to include('Category must be other than 1')
         end
         it 'product_condition_idが1だと保存できないこと' do
           @item.product_condition_id = 1
           @item.valid?
-          expect(@item.errors.full_messages).to include("Product condition must be other than 1")
+          expect(@item.errors.full_messages).to include('Product condition must be other than 1')
         end
         it 'burden_idが1だと保存できないこと' do
           @item.burden_id = 1
           @item.valid?
-          expect(@item.errors.full_messages).to include("Burden must be other than 1")
+          expect(@item.errors.full_messages).to include('Burden must be other than 1')
         end
         it 'area_idが1だと保存できないこと' do
           @item.area_id = 1
           @item.valid?
-          expect(@item.errors.full_messages).to include("Area must be other than 1")
+          expect(@item.errors.full_messages).to include('Area must be other than 1')
         end
         it 'shipping_day_idが1だと保存できないこと' do
           @item.shipping_day_id = 1
           @item.valid?
-          expect(@item.errors.full_messages).to include("Shipping day must be other than 1")
+          expect(@item.errors.full_messages).to include('Shipping day must be other than 1')
         end
         it 'userが紐付いていないと保存できないこと' do
           @item.user = nil

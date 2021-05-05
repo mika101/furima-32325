@@ -5,7 +5,7 @@ FactoryBot.define do
     description_of_item { '商品の説明' }
     category_id { 2 }
     product_condition_id { 2 }
-    price { 999999 }
+    price { 999_999 }
     burden_id { 2 }
     area_id { 2 }
     shipping_day_id { 2 }
