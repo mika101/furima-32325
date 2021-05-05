@@ -27,7 +27,8 @@
     </div>
 
     <%# ログイン状態かつ商品が売れていない場合 %>
-    <% if user_signed_in? && @item.purchase.blank?%>
+    <%# if user_signed_in? && @item.purchase.blank?%>
+    <% if user_signed_in? %>
     <%# 出品者の場合 %>
       <% if current_user.id == @item.user_id %>
       <%= link_to "商品の編集", item_path(@item), method: :get, class: "item-red-btn" %>
