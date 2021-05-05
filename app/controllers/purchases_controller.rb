@@ -2,6 +2,7 @@ class PurchasesController < ApplicationController
   def new
     @purchase = Purchase.new
   end
+
   def create
     @purchase = Purchase.new(item_params)
     if @purchase.save
@@ -10,8 +11,9 @@ class PurchasesController < ApplicationController
       render :new
     end
   end
+
   def show
     @purchases = Purchase.all
-    @purchases = Purchase.where(id:params[:id])
+    @purchases = Purchase.where(id: params[:id])
   end
 end

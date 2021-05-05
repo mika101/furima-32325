@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.order("created_at DESC")
+    @items = Item.order('created_at DESC')
   end
 
   def create
@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @purchases = Purchase.all
-    @items = Item.where(id:params[:id])
+    @items = Item.where(id: params[:id])
   end
 
   private
