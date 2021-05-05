@@ -4,12 +4,11 @@
 <div class="item-show">
 
   <div class="item-box">
-        <% @items.each do |item| %>
     <h2 class="name">
-      <%= item.item_name %>
+      <%= @item.item_name %>
     </h2>
     <div class="item-img-content">
-      <%= image_tag item.image, class:"item-box-img" %>
+      <%= image_tag @item.image, class:"item-box-img" %>
       <%# 商品が売れている場合は、sold outを表示する %>
       <%# 商品購入機能実装後に実装すること %>
       <%# if item.purchase.present? 
@@ -20,10 +19,10 @@
     </div>
     <div class="item-price-box">
       <span class="item-price">
-        <%= item.price %>円(税込み)
+        <%= @item.price %>円(税込み)
       </span>
       <span class="item-postage">
-        <%= item.burden.name %>
+        <%= @item.burden.name %>
       </span>
     </div>
 
@@ -46,27 +45,27 @@
       <tbody>
         <tr>
           <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= item.user.nickname %></td>
+          <td class="detail-value"><%= @item.user.nickname %></td>
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
-          <td class="detail-value"><%= item.category.name %></td>
+          <td class="detail-value"><%= @item.category.name %></td>
         </tr>
         <tr>
           <th class="detail-item">商品の状態</th>
-          <td class="detail-value"><%= item.product_condition.name %></td>
+          <td class="detail-value"><%= @item.product_condition.name %></td>
         </tr>
         <tr>
           <th class="detail-item">配送料の負担</th>
-          <td class="detail-value"><%= item.burden.name %></td>
+          <td class="detail-value"><%= @item.burden.name %></td>
         </tr>
         <tr>
           <th class="detail-item">発送元の地域</th>
-          <td class="detail-value"><%= item.area.name %></td>
+          <td class="detail-value"><%= @item.area.name %></td>
         </tr>
         <tr>
           <th class="detail-item">発送日の目安</th>
-          <td class="detail-value"><%= item.shipping_day.name %></td>
+          <td class="detail-value"><%= @item.shipping_day.name %></td>
         </tr>
       </tbody>
     </table>
@@ -106,8 +105,7 @@
     </a>
   </div>
 
-  <a href="#" class="another-item"><%= item.category.name %>をもっと見る</a>
-  <% end %>
+  <a href="#" class="another-item"><%= @item.category.name %>をもっと見る</a>
 </div>
 
 <%= render "shared/footer" %>
