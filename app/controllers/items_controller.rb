@@ -20,8 +20,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @purchases = Purchase.all
-    @items = Item.where(id: params[:id])
   end
 
   private
