@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_params)
+    if @item.update(item_params) && current_user.id == @item.user_id
       redirect_to item_path(@item)
     else
       render :edit
