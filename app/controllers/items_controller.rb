@@ -21,11 +21,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    
   end
 
   def edit
-
   end
 
   def update
@@ -51,9 +49,9 @@ end
 
 # 「ログイン状態で、URLを直接入力して売却済み商品の商品情報編集ページへ遷移しようとすると、トップページに遷移すること」
 # 「ログアウト状態で、URLを直接入力して売却済み商品の商品情報編集ページへ遷移しようとすると、ログインページに遷移すること」という機能に関しては、商品購入機能実装後に実装すること
-#def move_to_index
-  #redirect_to action: :index unless user_signed_in?
-#end
+# def move_to_index
+# redirect_to action: :index unless user_signed_in?
+# end
 
 def set_item
   @item = Item.find(params[:id])
