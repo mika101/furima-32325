@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:show, :edit, :update]
-  before_action :check_id, only: [:edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :check_id, only: [:edit, :update, :destroy]
 
   def new
     @item = Item.new
@@ -21,11 +21,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    
   end
 
   def edit
-
   end
 
   def update
@@ -34,6 +32,11 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @item.destroy
+    redirect_to root_path
   end
 end
 
@@ -46,9 +49,9 @@ end
 
 # 「ログイン状態で、URLを直接入力して売却済み商品の商品情報編集ページへ遷移しようとすると、トップページに遷移すること」
 # 「ログアウト状態で、URLを直接入力して売却済み商品の商品情報編集ページへ遷移しようとすると、ログインページに遷移すること」という機能に関しては、商品購入機能実装後に実装すること
-#def move_to_index
-  #redirect_to action: :index unless user_signed_in?
-#end
+# def move_to_index
+# redirect_to action: :index unless user_signed_in?
+# end
 
 def set_item
   @item = Item.find(params[:id])
