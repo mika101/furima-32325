@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_080158) do
+ActiveRecord::Schema.define(version: 2021_05_08_211858) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -48,6 +48,11 @@ ActiveRecord::Schema.define(version: 2021_05_05_080158) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
+  create_table "purchase_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id", null: false
     t.bigint "user_id", null: false
@@ -55,6 +60,19 @@ ActiveRecord::Schema.define(version: 2021_05_05_080158) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_purchases_on_item_id"
     t.index ["user_id"], name: "index_purchases_on_user_id"
+  end
+
+  create_table "shippong_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "postal_code", default: "", null: false
+    t.string "prefecture_id", null: false
+    t.string "municipality", default: "", null: false
+    t.string "address", default: "", null: false
+    t.string "building_name", default: ""
+    t.string "phone_number", default: "", null: false
+    t.bigint "purchase_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["purchase_id"], name: "index_shippong_addresses_on_purchase_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -79,4 +97,5 @@ ActiveRecord::Schema.define(version: 2021_05_05_080158) do
   add_foreign_key "items", "users"
   add_foreign_key "purchases", "items"
   add_foreign_key "purchases", "users"
+  add_foreign_key "shippong_addresses", "purchases"
 end

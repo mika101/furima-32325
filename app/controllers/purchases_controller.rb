@@ -1,19 +1,25 @@
 class PurchasesController < ApplicationController
-  # def new
-  # @purchase = Purchase.new
-  # end
+   def new
+   @purchase_information = PurchaseInformation.new
+   end
+  
+   def index
+    @purchase_information = PurchaseInformation.all
+    @item = Item.find(params[:item_id])
+   end
 
-  # def create
-  # @purchase = Purchase.new(item_params)
-  # if @purchase.save
-  # redirect_to root_path
-  # else
-  # render :new
-  # end
-  # end
+   def create
+    binding.pry
+   end
 
-  # def show
-  # @purchases = Purchase.all
-  # @purchases = Purchase.where(id: params[:id])
-  # end
+   def show
+   @purchase_information = PurchaseInformation.all
+   @item = Item.find(item_params[:item_id])
+   end
+
+ private
+
+  def purchase_information_params
+    params.permit(:item_id, :user, :postal_code, :municipality, :address, :building_name, :prefecture_id, :purchase)
+  end
 end
