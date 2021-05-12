@@ -1,12 +1,12 @@
 class PurchaseInformation
   
   include ActiveModel::Model
-  attr_accessor :item_id, :user_id, :postal_code, :area_id, :municipality, :address, :building_name, :purchase, :phone_number, :purchase_id
+  attr_accessor :item_id, :user_id, :postal_code, :area_id, :municipality, :address, :building_name, :phone_number, :purchase_id
 
   with_options presence: true do
     validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
-    validates :address, format: { with: /\A[0-9]+\z/ }
-    validates :building_name
+    validates :municipality
+    validates :address
     validates :phone_number, format: { with: /\A\d{11}\z/ }
     validates :user_id
     validates :item_id
