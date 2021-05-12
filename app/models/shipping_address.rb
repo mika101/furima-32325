@@ -1,7 +1,6 @@
 class ShippingAddress < ApplicationRecord
-  belongs_to :user
+  # include ActiveHash::Associations
+  # has_one :area
   belongs_to :purchase
-  belongs_to :shipping_day
-  belongs_to :shipping_address
-  has_one :item
+
 end
