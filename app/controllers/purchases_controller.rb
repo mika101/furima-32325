@@ -1,9 +1,17 @@
 class PurchasesController < ApplicationController
-  
+  before_action :move_to_index
+
    def index
     @purchase_information = PurchaseInformation.new
     @item = Item.find(params[:item_id])
-   end
+    if current_user == @item.user
+      redirect_to root_path
+    end
+   if @item.purchase.present? 
+    redirect_to root_path
+    end
+  end
+
 
    def create
     #PurchaseInformation.create(purchase_information_params)
@@ -35,5 +43,9 @@ class PurchasesController < ApplicationController
       card: purchase_information_params[:token],    # カードトークン
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
+  end
+# 「ログアウト状態で、URLを直接入力して売却済み商品の商品情報編集ページへ遷移しようとすると、ログインページに遷移すること」
+  def move_to_index
+    redirect_to new_user_session_path unless user_signed_in?
   end
 end
