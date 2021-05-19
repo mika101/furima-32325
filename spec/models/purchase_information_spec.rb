@@ -44,30 +44,29 @@ RSpec.describe PurchaseInformation, type: :model do
         it 'area_idが1だと保存できないこと' do
           @purchase_information.area_id = 1
           @purchase_information.valid?
-          expect(@purchase_information.errors.full_messages).to include("Area must be other than 1")
+          expect(@purchase_information.errors.full_messages).to include('Area must be other than 1')
         end
         it 'purchaseが紐付いていないと保存できないこと' do
           @purchase_information.purchase_id = nil
           @purchase_information.valid?
-          expect(@purchase_information.errors.full_messages).to include()
+          expect(@purchase_information.errors.full_messages).to include
         end
         it 'postal_codeが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
           @purchase_information.postal_code = '1234567'
           @purchase_information.valid?
-          expect(@purchase_information.errors.full_messages).to include("Postal code is invalid")
+          expect(@purchase_information.errors.full_messages).to include('Postal code is invalid')
         end
         it 'phone_numberが全角数字だと保存できないこと' do
           @purchase_information.phone_number = '１２３４５６７８９１２'
           @purchase_information.valid?
-          expect(@purchase_information.errors.full_messages).to include("Phone number is invalid")
+          expect(@purchase_information.errors.full_messages).to include('Phone number is invalid')
         end
-        it "tokenが空では登録できないこと" do
+        it 'tokenが空では登録できないこと' do
           @purchase_information.token = nil
           @purchase_information.valid?
           expect(@purchase_information.errors.full_messages).to include("Token can't be blank")
         end
       end
     end
-
   end
 end
