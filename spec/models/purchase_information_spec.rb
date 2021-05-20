@@ -3,7 +3,10 @@ require 'rails_helper'
 RSpec.describe PurchaseInformation, type: :model do
   describe Item do
     before do
-      @purchase_information = FactoryBot.build(:purchase_information)
+      @user = FactoryBot.create(:user)
+      @item = FactoryBot.create(:item)
+      @purchase_information = FactoryBot.build(:purchase_information, user_id: @user.id, item_id: @item.id)
+      sleep 0.1  
     end
     describe '購入情報登録' do
       context '購入情報登録がうまくいくとき' do
