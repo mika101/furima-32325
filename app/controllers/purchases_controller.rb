@@ -42,6 +42,6 @@ class PurchasesController < ApplicationController
   end
 # 「ログアウト状態で、URLを直接入力して売却済み商品の商品情報編集ページへ遷移しようとすると、ログインページに遷移すること」
   def move_to_index
-    redirect_to new_user_session_path unless user_signed_in?
+    authenticate_user!
   end
 end
