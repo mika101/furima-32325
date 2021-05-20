@@ -49,11 +49,6 @@ RSpec.describe PurchaseInformation, type: :model do
           @purchase_information.valid?
           expect(@purchase_information.errors.full_messages).to include('Area must be other than 1')
         end
-        it 'purchaseが紐付いていないと保存できないこと' do
-          @purchase_information.purchase_id = nil
-          @purchase_information.valid?
-          expect(@purchase_information.errors.full_messages).to include
-        end
         it 'postal_codeが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
           @purchase_information.postal_code = '1234567'
           @purchase_information.valid?
