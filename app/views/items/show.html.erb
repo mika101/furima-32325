@@ -23,10 +23,7 @@
         <%= @item.burden.name %>
       </span>
     </div>
-
-    <%# ログイン状態かつ商品が売れていない場合 %>
     <% if user_signed_in? && @item.purchase.blank?%>
-    <%# 出品者の場合 %>
       <% if current_user.id == @item.user_id %>
       <%= link_to "商品の編集", edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
       <p class="or-text">or</p>
