@@ -5,7 +5,7 @@ class PurchasesController < ApplicationController
     @purchase_information = PurchaseInformation.new
     @item = Item.find(params[:item_id])
     if current_user == @item.user
-      redirect_to root_path
+      redirect_to root_path and return
     end
    if @item.purchase.present? 
     redirect_to root_path
