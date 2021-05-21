@@ -1,5 +1,5 @@
 class PurchasesController < ApplicationController
-  before_action :move_to_index
+  before_action :authenticate_user!
 
    def index
     @purchase_information = PurchaseInformation.new
@@ -37,9 +37,5 @@ class PurchasesController < ApplicationController
       card: purchase_information_params[:token],    # カードトークン
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
-  end
-# 「ログアウト状態で、URLを直接入力して売却済み商品の商品情報編集ページへ遷移しようとすると、ログインページに遷移すること」
-  def move_to_index
-    authenticate_user!
   end
 end
