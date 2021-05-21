@@ -12,8 +12,6 @@ class PurchasesController < ApplicationController
     end
   end
    def create
-    #PurchaseInformation.create(purchase_information_params)
-    #  binding.pry
     @item = Item.find(params[:item_id])
     @purchase_information = PurchaseInformation.new(purchase_information_params)
     if @purchase_information.valid?
