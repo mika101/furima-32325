@@ -46,8 +46,6 @@ def item_params
                                :burden_id, :area_id, :shipping_day_id).merge(user_id: current_user.id)
 end
 
-# 「ログイン状態で、URLを直接入力して売却済み商品の商品情報編集ページへ遷移しようとすると、トップページに遷移すること」
-
 def set_item
   @item = Item.find(params[:id])
 end
