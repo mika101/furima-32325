@@ -1,7 +1,7 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item, only: [:create, :edit, :update, :destroy]
-  before_action :move_top_page, only: [:create, :index]
+  before_action :set_item 
+  before_action :move_top_page
 
    def index
     @purchase_information = PurchaseInformation.new
