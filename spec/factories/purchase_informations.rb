@@ -8,8 +8,5 @@ FactoryBot.define do
     phone_number { "0#{rand(0..9)}0#{rand(1_000_000..99_999_999)}" }
     purchase_id { 2 }
     token { 'tok_abcdefghijk00000000000000000' }
-
-    association :item
-    association :user
   end
 end
