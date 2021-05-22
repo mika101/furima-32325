@@ -20,6 +20,5 @@ class Area < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :items
-  has_many :purchases
   has_one :shipping_addresses
 end
