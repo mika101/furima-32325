@@ -1,17 +1,13 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item, only: [:index, :create]
+  before_action :set_item, only: [:create, :edit, :update, :destroy]
+  before_action :move_top_page, only: [:create, :index]
 
    def index
     @purchase_information = PurchaseInformation.new
-
-    if current_user == @item.user
-      redirect_to root_path and return
-    end
-   if @item.purchase.present? 
-    redirect_to root_path
-    end
+  
   end
+
    def create
     @purchase_information = PurchaseInformation.new(purchase_information_params)
     if @purchase_information.valid?
@@ -41,4 +37,11 @@ class PurchasesController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
+  def move_top_page
+    @item = Item.find(params[:item_id])
+  if current_user == @item.user || @item.purchase.present? 
+    redirect_to root_path and return
+  end
+end
 end
