@@ -59,6 +59,16 @@ RSpec.describe PurchaseInformation, type: :model do
           @purchase_information.valid?
           expect(@purchase_information.errors.full_messages).to include('Phone number is invalid')
         end
+        it 'phone_numberが12桁以上だと保存できないこと' do
+          @purchase_information.phone_number = '123456789123'
+          @purchase_information.valid?
+          expect(@purchase_information.errors.full_messages).to include('Phone number is invalid')
+        end
+        it 'phone_numberが英数字混合だと保存できないこと' do
+          @purchase_information.phone_number = 'aaaaa111111'
+          @purchase_information.valid?
+          expect(@purchase_information.errors.full_messages).to include('Phone number is invalid')
+        end
         it 'tokenが空では登録できないこと' do
           @purchase_information.token = nil
           @purchase_information.valid?
