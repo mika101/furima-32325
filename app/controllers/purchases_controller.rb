@@ -39,7 +39,6 @@ class PurchasesController < ApplicationController
   end
 
   def move_top_page
-    @item = Item.find(params[:item_id])
   if current_user == @item.user || @item.purchase.present? 
     redirect_to root_path and return
   end
