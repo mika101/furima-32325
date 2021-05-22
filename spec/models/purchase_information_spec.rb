@@ -64,6 +64,16 @@ RSpec.describe PurchaseInformation, type: :model do
           @purchase_information.valid?
           expect(@purchase_information.errors.full_messages).to include("Token can't be blank")
         end
+        it 'user_idが空では登録できないこと' do
+          @purchase_information.user_id = nil
+          @purchase_information.valid?
+          expect(@purchase_information.errors.full_messages).to include("User can't be blank")
+        end
+        it 'item_idが空では登録できないこと' do
+          @purchase_information.item_id = nil
+          @purchase_information.valid?
+          expect(@purchase_information.errors.full_messages).to include("Item can't be blank")
+        end
       end
     end
   end
