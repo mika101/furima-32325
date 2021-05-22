@@ -20,5 +20,5 @@ class Area < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :items
-  has_one :shipping_addresses
+  has_many :shipping_addresses
 end
