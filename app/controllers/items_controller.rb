@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :check_id, only: [:update, :edit, :destroy]
+  before_action :move_top_page, only: [:update, :edit]
 
   def new
     @item = Item.new
@@ -24,8 +25,7 @@ def show
 end
 
 def edit
-  if @item.purchase.present?
-  redirect_to root_path 
+
 end
 end
 
@@ -56,4 +56,11 @@ end
 def check_id
   redirect_to root_path unless current_user.id == @item.user_id
 end
+
+def move_top_page
+if @item.purchase.present?
+  redirect_to root_path 
+end
+end
+
 end
